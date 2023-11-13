@@ -55,6 +55,3 @@ The process of picking up a prescription in the AuroraChain application, which l
 
 This workflow ensures a seamless, secure, and efficient process from the moment a prescription is issued to its pickup at the pharmacy, all facilitated by smart contract technology within the AuroraChain application. The use of blockchain not only enhances the security and transparency of the process but also ensures compliance with healthcare regulations and patient privacy.
 
-
-![Uploading image.png…]()
-
