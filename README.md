@@ -7,11 +7,14 @@ Blockchain Based Prescription Application: AuroraChain
 Notes: 
 Things to complete: 
 Create a wallet connection and build out UI to have different portals/pages for pharmcists, Patient, Doctors
-This login system will verify for pharmcis and doctors through a doctor ID and Pharacy ID, the more pHaramcies we sign on there will be more locations. 
+This login system will verify for pharmacies and doctors through a doctored ID and Pharmacy ID; the more pharmacies we sign on there will be more locations. 
+Phramacies must have a phjaramcy ID, 
+Doctors must have a doctor ID, 
+patients have their crypto wallets. 
 
 
 Application Structure: 
-1.	components: blockchain network , smart contract development, UI, and integration of Filecoin for data storage.
+1.	components: blockchain network, smart contract development, UI, and integration of Filecoin for data storage.
 
 1. Blockchain Network 
 - Choice of Blockchain: Ethereum due to its support for smart contracts.
