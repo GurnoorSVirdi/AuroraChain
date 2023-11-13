@@ -1,0 +1,59 @@
+.home {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f8ff; /* light purple background */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #6a5acd; /* purple navbar */
+    color: white;
+}
+
+.title {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.navigation-buttons {
+    display: flex;
+    gap: 10px; /* Adjust spacing between buttons */
+}
+
+.nav-btn {
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    background: transparent;
+}
+
+.nav-btn:hover {
+    background-color: white;
+    color: #6a5acd;
+}
+
+.connect-wallet-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #7b68ee; /* slightly lighter purple */
+    color: white;
+}
+
+.connect-wallet-btn:hover {
+    background-color: #836fff; /* lighter purple on hover */
+}
+
+.blockchain-image-container {
+    background: url('../images/blockchain-image.jpg') no-repeat center center;
+    background-size: cover;
+    height: calc(90vh - 60px); /* Adjust based on the actual navbar height */
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+}
