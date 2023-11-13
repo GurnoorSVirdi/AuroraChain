@@ -1,5 +1,5 @@
 # AuroraChain
-BlockchainBasedPrescriptionApplicationss
+BlockchainBasedPrescriptionApplication
 
 
 Blockchain Based Prescription Application: AuroraChain
