@@ -1,12 +1,12 @@
 import React from 'react';
 
-function HistoryPage() {
+function DoctorPage() {
   return (
     <div>
-      <h2>Prescription History</h2>
+      <h2>DoctorPage</h2>
       {/* Placeholder for the HistoryList component */}
     </div>
   );
 }
 
-export default HistoryPage;
+export default DoctorPage;

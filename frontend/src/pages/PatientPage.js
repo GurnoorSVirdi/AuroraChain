@@ -1,12 +1,12 @@
 import React from 'react';
 
-function RenewalsPage() {
+function PatientPage() {
   return (
     <div>
-      <h2>Prescription Renewals</h2>
+      <h2>Patient Page</h2>
       {/* Placeholder for the Notifications component */}
     </div>
   );
 }
 
-export default RenewalsPage;
+export default PatientPage;

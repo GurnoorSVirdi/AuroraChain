@@ -4,14 +4,12 @@ import { Link } from 'react-router-dom';
 import '../styles/HomePage.css';
 
 const HomePage = () => {
-  const [walletAddress, setWalletAddress] = useState('');
+    const [walletAddress, setWalletAddress] = useState('');
 
     const connectWallet = async () => {
-        if (window.ethereum) { // Check if MetaMask is installed
+        if (window.ethereum) {
             try {
-                // Request account access
                 const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-                // Set the first account as the connected wallet
                 setWalletAddress(accounts[0]);
                 console.log(walletAddress);
             } catch (error) {
@@ -22,29 +20,34 @@ const HomePage = () => {
         }
     };
 
-  return (
-      <div className="home">
-          <nav className="navbar">
-              <span className="title">AuroraChain</span>
-              <div className="navigation-buttons">
-                  <Link to="/wallet" className="nav-btn">Prescription Wallet</Link>
-                  <Link to="/history" className="nav-btn">History</Link>
-                  <Link to="/renewals" className="nav-btn">Renewals</Link>
-              </div>
-              <button onClick={connectWallet} className="connect-wallet-btn">
-                  Connect Wallet
-              </button>
-          </nav>
-          <div className="navigation-buttons">
-            <Link to="/wallet" className="nav-btn">Prescription Wallet</Link>
-            <Link to="/history" className="nav-btn">History</Link>
-            <Link to="/renewals" className="nav-btn">Renewals</Link>
-          </div>
-          <div className="blockchain-image-container">
-              {/* Image will be added here through CSS */}
-          </div>
-      </div>
-  );
+    return (
+        <div className="home">
+            <nav className="navbar">
+                <span className="title">AuroraChain</span>
+                <button onClick={connectWallet} className="connect-wallet-btn">
+                    Connect Wallet
+                </button>
+            </nav>
+            <div className="hero">
+                <h2>Welcome to AuroraChain</h2>
+                <p>
+                    A blockchain-based prescription management system where 
+                    doctors can give prescriptions, patients can receive and 
+                    use them, and pharmacists can approve and mark them as used.
+                    Authentication and security are at the core of AuroraChain, 
+                    ensuring that prescriptions are legitimate and used correctly.
+                </p>
+            </div>
+            <div className="role-selection">
+                <h1>I am a...</h1>
+                <div className="role-buttons">
+                    <Link to="/doctor" className="role-btn">Doctor</Link>
+                    <Link to="/patient" className="role-btn">Patient</Link>
+                    <Link to="/pharmacist" className="role-btn">Pharmacist</Link>
+                </div>
+            </div>
+        </div>
+    );
 };
 
 export default HomePage;

@@ -1,12 +1,12 @@
 import React from 'react';
 
-function PrescriptionWalletPage() {
+function PharmacistPage() {
   return (
     <div>
-      <h2>Prescription Wallet</h2>
+      <h2>Pharmacist Page</h2>
       {/* Placeholder for the Wallet component */}
     </div>
   );
 }
 
-export default PrescriptionWalletPage;
+export default PharmacistPage;

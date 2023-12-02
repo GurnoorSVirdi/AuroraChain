@@ -1,59 +1,97 @@
-.home {
+body {
+    background: linear-gradient(to bottom, #faf5ff, #e6e0f8);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8f8ff; /* light purple background */
 }
+
+
+.home {
+    min-height: 100vh; /* Ensures the div takes up the full viewport height */
+    width: 100%; /* Ensures the div takes up the full viewport width */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    background-color: #6a5acd; /* purple navbar */
+    padding: 1.25rem 1.5rem; /* Increased padding for a bigger navbar */
+    background-color: #6a5acd;
     color: white;
 }
 
 .title {
     margin: 0;
-    font-size: 1.5rem;
-}
-
-.navigation-buttons {
-    display: flex;
-    gap: 10px; /* Adjust spacing between buttons */
-}
-
-.nav-btn {
-    padding: 10px 20px;
-    border: 2px solid white;
-    border-radius: 5px;
-    text-decoration: none;
-    color: white;
-    background: transparent;
-}
-
-.nav-btn:hover {
-    background-color: white;
-    color: #6a5acd;
+    font-size: 2rem; /* Optionally increased font size for the title */
 }
 
 .connect-wallet-btn {
-    padding: 10px 20px;
+    padding: 0.75rem 1.5rem; /* Slightly bigger padding for the button */
     border: none;
-    border-radius: 5px;
+    border-radius: 0.3125rem;
     cursor: pointer;
-    background-color: #7b68ee; /* slightly lighter purple */
+    background-color: #7b68ee;
     color: white;
+    font-size: 1.2rem; /* Optionally increased font size for better readability */
 }
 
 .connect-wallet-btn:hover {
-    background-color: #836fff; /* lighter purple on hover */
+    background-color: #836fff;
 }
 
-.blockchain-image-container {
-    background: url('../images/blockchain-image.jpg') no-repeat center center;
-    background-size: cover;
-    height: calc(90vh - 60px); /* Adjust based on the actual navbar height */
-    width: 30%;
-    margin-left: auto;
-    margin-right: auto;
+.hero {
+    text-align: center;
+    padding: 1.25rem; /* 20px equivalent */
+    color: #333;
 }
+
+.hero h2 {
+    font-size: 2.5rem;
+    color: #6a5acd;
+    margin-bottom: 0.9375rem; /* 15px equivalent */
+}
+
+.hero p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+.role-selection h1 {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: #6a5acd
+}
+
+.role-buttons {
+    display: flex;
+    gap: 1.875rem; /* 30px equivalent */
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.role-btn {
+    padding: 1.25rem; /* 20px equivalent */
+    min-width: 12.5rem; /* 200px equivalent */
+    text-align: center;
+    border: 0.1875rem solid #6a5acd; /* 3px equivalent */
+    border-radius: 0.3125rem; /* 5px equivalent */
+    text-decoration: none;
+    color: #6a5acd;
+    font-size: 1.2rem;
+    background-color: white;
+    transition: background-color 0.3s, color 0.3s;
+    margin-bottom: 0.625rem; /* 10px equivalent */
+}
+
+
+.role-btn:hover {
+    background-color: #6a5acd;
+    color: white;
+}
+
