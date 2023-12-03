@@ -95,3 +95,8 @@ body {
     color: white;
 }
 
+.error-message {
+    color: red; /* Or any color you prefer */
+    font-size: 1.3rem;
+    font-weight: bold;
+}
