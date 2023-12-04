@@ -14,7 +14,7 @@ function DoctorPage() {
 
   // Web3 and contract setup
   const web3 = new Web3(Web3.givenProvider || "http://localhost:8545");
-  const prescriptionContractAddress = '0x7FF3E03736Aba3aa26b5f7019E9ea16fD479D1c0'; // Replace with your contract address
+  const prescriptionContractAddress = '0x3Efab316D2e12611213dc7FC14d9C45525037cdC'; // Replace with your contract address
   const prescriptionContract = new web3.eth.Contract(PrescriptionContractABI, prescriptionContractAddress);
 
   const loadAccountData = async () => {
@@ -69,55 +69,62 @@ function DoctorPage() {
 
   return (
     <div className={styles.fullPage}>
-      <div className={styles.doctorPage}>
-        <h2>DoctorPage</h2>
-        <form onSubmit={handleSubmit} className={styles.form}>
-          <input 
-            type="text" 
-            placeholder="Patient Address" 
-            value={patientAddress}
-            onChange={(e) => setPatientAddress(e.target.value)}
-          />
-          <input 
-            type="text" 
-            placeholder="Medication Type" 
-            value={medicationType}
-            onChange={(e) => setMedicationType(e.target.value)}
-          />
-          <input 
-            type="number" 
-            placeholder="Quantity" 
-            value={quantity}
-            onChange={(e) => setQuantity(e.target.value)}
-          />
-          <input 
-            type="date" 
-            placeholder="Expiration Date" 
-            value={expirationDate}
-            onChange={(e) => setExpirationDate(e.target.value)}
-          />
-          <button type="submit">Create Prescription</button>
-        </form>
-        <div>
-        <h3>Issued Prescriptions</h3>
-        <ul className={styles.prescriptionsList}>
-          {doctorPrescriptions.map((prescription, index) => {
-            const expirationDate = new Date(parseInt(prescription.expirationDate) * 1000).toLocaleDateString();
-            return (
-              <li key={index}>
-                Patient Address: {prescription.patientAddress},
-                Medication Type: {prescription.medicationType},
-                Quantity: {Number(prescription.quantity)},
-                Expiration Date: {expirationDate}
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-      </div>
+        <div className={styles.doctorPage}>
+            <h2>Welcome! Create a Prescription for your Patients: </h2>
+            <form onSubmit={handleSubmit} className={styles.form}>
+              <input 
+                type="text" 
+                placeholder="Patient Address" 
+                value={patientAddress}
+                onChange={(e) => setPatientAddress(e.target.value)}
+                className={styles.input}
+              />
+              <input 
+                type="text" 
+                placeholder="Medication Type" 
+                value={medicationType}
+                onChange={(e) => setMedicationType(e.target.value)}
+                className={styles.input}
+              />
+              <input 
+                type="number" 
+                placeholder="Quantity" 
+                value={quantity}
+                onChange={(e) => setQuantity(e.target.value)}
+                className={styles.input}
+              />
+              <input 
+                type="date" 
+                placeholder="Expiration Date" 
+                value={expirationDate}
+                onChange={(e) => setExpirationDate(e.target.value)}
+                className={styles.input}
+              />
+              <button type="submit" className={styles.prescriptionButton}>Create Prescription</button>
+            </form>
+            <div>
+                <h3 className={styles.prescriptionTitleHeader}>Issued Prescriptions</h3>
+                <ul className={styles.prescriptionsList}>
+                    {doctorPrescriptions.map((prescription, index) => {
+                        const expirationDateFormatted = new Date(parseInt(prescription.expirationDate) * 1000).toLocaleDateString();
+                        return (
+                            <li key={index}>
+                                <span className={styles.fieldName}>Patient Address:</span>
+                                <span className={styles.fieldValue}>{prescription.patientAddress}</span><br/>
+                                <span className={styles.fieldName}>Medication Type:</span>
+                                <span className={styles.fieldValue}>{prescription.medicationType}</span><br/>
+                                <span className={styles.fieldName}>Quantity:</span>
+                                <span className={styles.fieldValue}>{Number(prescription.quantity)}</span><br/>
+                                <span className={styles.fieldName}>Expiration Date:</span>
+                                <span className={styles.fieldValue}>{expirationDateFormatted}</span><br/>
+                            </li>
+                        );
+                    })}
+                </ul>
+            </div>
+        </div>
     </div>
   );
 }
 
 export default DoctorPage;
-

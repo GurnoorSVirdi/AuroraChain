@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Web3 from 'web3';
 import PrescriptionContractABI from './PrescriptionContractABI.js';
+import styles from '../styles/PharmacistPage.module.css';
 
 function PharmacistPage() {
     const [prescriptions, setPrescriptions] = useState([]);
 
     // Web3 and contract setup
     const web3 = new Web3(Web3.givenProvider || "http://localhost:8545");
-    const prescriptionContractAddress = '0x7FF3E03736Aba3aa26b5f7019E9ea16fD479D1c0';
+    const prescriptionContractAddress = '0x3Efab316D2e12611213dc7FC14d9C45525037cdC';
     const prescriptionContract = new web3.eth.Contract(PrescriptionContractABI, prescriptionContractAddress);
 
     useEffect(() => {
@@ -39,17 +40,27 @@ function PharmacistPage() {
     };
 
     return (
-        <div>
-            <h2>Pharmacist Page</h2>
-            <ul>
+        <div className={styles.pharmacistContainer}>
+            <h2 className={styles.pharmacistHeader}>Pharmacist Page</h2>
+            <ul className={styles.prescriptionList}>
                 {prescriptions.map((detail, index) => (
-                    <li key={index}>
-                        Patient Address: {detail.prescription.patientAddress},
-                        Medication Type: {detail.prescription.medicationType},
-                        Quantity: {detail.prescription.quantity.toString()}, {/* Convert BigInt to String */}
-                        Expiration Date: {new Date(Number(detail.prescription.expirationDate) * 1000).toLocaleDateString()},
-                        Used: {detail.prescription.used ? "true" : "false"}
-                        <button onClick={() => markAsUsed(detail.prescription.patientAddress, detail.globalIndex)}>Mark as Used</button>
+                    <li key={index} className={styles.prescriptionItem}>
+                        <div className={styles.prescriptionDetailContainer}> {/* New container for prescription details */}
+                            <p className={styles.prescriptionDetails}>
+                                <strong>Patient Address: </strong> {detail.prescription.patientAddress}<br />
+                                <strong>Medication Type: </strong> {detail.prescription.medicationType}<br />
+                                <strong>Quantity: </strong> {detail.prescription.quantity.toString()}<br />
+                                <strong>Expiration Date: </strong> {new Date(Number(detail.prescription.expirationDate) * 1000).toLocaleDateString()}<br />
+                                <strong>Used: </strong> {detail.prescription.used ? "Yes" : "No"}
+                            </p>
+                        </div>
+                        <button
+                            className={styles.markUsedButton}
+                            onClick={() => markAsUsed(detail.prescription.patientAddress, detail.globalIndex)}
+                        >
+                            Mark as Used
+                        </button>
+                        {index < prescriptions.length - 1 && <hr className={styles.separatorLine} />} {/* Line separator */}
                     </li>
                 ))}
             </ul>

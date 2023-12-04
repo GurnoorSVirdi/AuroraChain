@@ -4,12 +4,16 @@
     max-width: 600px;
     margin: 20px auto;
     padding: 20px;
+    text-align: left; /* Align content to the left */
 }
 
 .doctorPage h2 {
-    color: #2f2e2e;
+    font-size: 36px;
+    font-style: bold;
+    color: #6a5acd;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    margin-bottom: 36px;
 }
 
 .form {
@@ -31,6 +35,7 @@
 .input {
     border: 2px solid #ccc; /* Thicker border */
     background-color: #fff;
+    box-sizing: border-box; /* Adjust box-sizing */
 }
 
 .input:focus {
@@ -40,7 +45,7 @@
 }
 
 .button {
-    background-color: #6e6e6e;
+    background-color: #6a5acd; /* Matched to PatientPage button color */
     color: white;
     border: none;
     cursor: pointer;
@@ -48,7 +53,7 @@
 }
 
 .button:hover {
-    background-color: #5a5a5a;
+    background-color: #5f4bb6;
 }
 
 .prescriptionsList {
@@ -61,8 +66,9 @@
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    border-left: 5px solid #6e6e6e;
+    border-left: 5px solid #6a5acd; /* Matched to PatientPage */
     margin-bottom: 15px;
+    text-align: left; /* Align prescription details to the left */
 }
 
 .prescriptionsList li:hover {
@@ -84,5 +90,28 @@
 
 .fullPage {
     min-height: 100vh;
-    background: #e0e0e0;
+    background: rgb(241, 234, 249);
 }
+
+
+.prescriptionTitleHeader {
+    font-size: 28px;
+    color: #6a5acd; /* Specified hex color */
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+
+.prescriptionButton {
+    background-color: #6a5acd; /* Specified hex color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+

@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Web3 from 'web3';
 import PrescriptionContractABI from './PrescriptionContractABI'; // Import the ABI
+import styles from '../styles/PatientPage.module.css';
 
 function PatientPage() {
   const [patientPrescriptions, setPatientPrescriptions] = useState([]);
 
   // Web3 and contract setup
   const web3 = new Web3(Web3.givenProvider || "http://localhost:8545");
-  const prescriptionContractAddress = '0x7FF3E03736Aba3aa26b5f7019E9ea16fD479D1c0'; // Replace with your contract address
+  const prescriptionContractAddress = '0x3Efab316D2e12611213dc7FC14d9C45525037cdC'; // Replace with your contract address
   const prescriptionContract = new web3.eth.Contract(PrescriptionContractABI, prescriptionContractAddress);
 
   const [allowedAddress, setAllowedAddress] = useState('');
@@ -54,35 +55,48 @@ function PatientPage() {
   }, [allowedAddressUpdated]);
 
   return (
-    <div>
-      <h2>Patient Page</h2>
-      <div>
-        <h3>Your Prescriptions</h3>
-        <ul>
-        {patientPrescriptions.map((prescription, index) => {
-          const expirationDate = new Date(parseInt(prescription.expirationDate) * 1000).toLocaleDateString();
-          return (
-            <li key={index}>
-              Prescription index: {index},
-              Doctor Address: {prescription.doctorAddress},
-              Medication Type: {prescription.medicationType},
-              Quantity: {Number(prescription.quantity)},
-              Expiration Date: {expirationDate},
-              Allowed Address: {prescription.allowedAddress === "0x0000000000000000000000000000000000000000" ? "None" : prescription.allowedAddress},
-              Used: {prescription.used ? "true" : "false"}
-            </li>
-          );
-        })}
-      </ul>
-      </div>
-      <h3>Give Pharmacist permission</h3>
-      <div>
-        <input type="text" placeholder="Allowed Address" value={allowedAddress} onChange={(e) => setAllowedAddress(e.target.value)} />
-        <input type="number" placeholder="Prescription Index" value={selectedPrescriptionIndex} onChange={(e) => setSelectedPrescriptionIndex(e.target.value)} />
-        <button onClick={handleAllowAddress}>Allow Address</button>
-      </div>
+    <div className={styles.patientContainer}>
+        <h2 className={styles.patientHeader}>Patient Page</h2>
+        <div>
+            <h3 className={styles.prescriptionTitleHeader}>Your Prescriptions:</h3>
+            <ul className={styles.prescriptionList}>
+                {patientPrescriptions.map((prescription, index) => {
+                    const expirationDate = new Date(parseInt(prescription.expirationDate) * 1000).toLocaleDateString();
+                    return (
+                        <li key={index} className={styles.prescriptionItem}>
+                            <p className={styles.prescriptionDetails}>
+                                <strong>Prescription index: </strong> {index}<br/>
+                                <strong>Doctor Address: </strong> {prescription.doctorAddress}<br/>
+                                <strong>Medication Type: </strong> {prescription.medicationType}<br/>
+                                <strong>Quantity: </strong> {Number(prescription.quantity)}<br/>
+                                <strong>Expiration Date: </strong> {expirationDate}<br/>
+                                <strong>Allowed Address: </strong> {prescription.allowedAddress === "0x0000000000000000000000000000000000000000" ? "None" : prescription.allowedAddress}<br/>
+                                Used: {prescription.used ? "Yes" : "No"}
+                            </p>
+                        </li>
+                    );
+                })}
+            </ul>
+        </div>
+        <div>
+            <input 
+                type="text" 
+                placeholder="Allowed Address" 
+                value={allowedAddress} 
+                onChange={(e) => setAllowedAddress(e.target.value)} 
+                className={`${styles.inputField} ${styles.allowedAddressField}`} 
+            />
+            <input 
+                type="number" 
+                placeholder="Prescription Index" 
+                value={selectedPrescriptionIndex} 
+                onChange={(e) => setSelectedPrescriptionIndex(e.target.value)} 
+                className={`${styles.inputField} ${styles.patientIndexField}`} 
+            />
+            <button onClick={handleAllowAddress} className={styles.permissionButton}>Allow Address</button>
+        </div>
     </div>
-  );
+);
 }
 
 export default PatientPage;
