@@ -7,8 +7,30 @@ function PatientPage() {
 
   // Web3 and contract setup
   const web3 = new Web3(Web3.givenProvider || "http://localhost:8545");
-  const prescriptionContractAddress = '0xE7E532262107F07C494dCA301ee60DE38C35C0da'; // Replace with your contract address
+  const prescriptionContractAddress = '0xe24534E148b6337f554590e2DeEE171Cf314Af98'; // Replace with your contract address
   const prescriptionContract = new web3.eth.Contract(PrescriptionContractABI, prescriptionContractAddress);
+
+  const [allowedAddress, setAllowedAddress] = useState('');
+  const [selectedPrescriptionIndex, setSelectedPrescriptionIndex] = useState(0);
+  const [allowedAddressUpdated, setAllowedAddressUpdated] = useState(0);
+
+  const handleAllowAddress = async () => {
+    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+      if (accounts.length === 0) {
+        console.error('No accessible accounts. Make sure Ethereum client is configured correctly.');
+        return;
+      }
+      const patientAddress = accounts[0];
+
+    try {
+      await prescriptionContract.methods.allowAddressToMarkPrescription(selectedPrescriptionIndex, allowedAddress)
+        .send({ from: patientAddress, gas: web3.utils.toHex(3000000)});
+      console.log('Address allowed for prescription');
+      setAllowedAddressUpdated(allowedAddressUpdated+1);
+    } catch (error) {
+      console.error('Error allowing address:', error);
+    }
+  };
 
   const loadAccountData = async () => {
     try {
@@ -29,7 +51,7 @@ function PatientPage() {
   // Effect hook to load account data and prescriptions
   useEffect(() => {
     loadAccountData();
-  }, []);
+  }, [allowedAddressUpdated]);
 
   return (
     <div>
@@ -41,14 +63,23 @@ function PatientPage() {
           const expirationDate = new Date(parseInt(prescription.expirationDate) * 1000).toLocaleDateString();
           return (
             <li key={index}>
-              Patient Address: {prescription.patientAddress},
+              Prescription index: {index},
+              Doctor Address: {prescription.doctorAddress},
               Medication Type: {prescription.medicationType},
               Quantity: {Number(prescription.quantity)},
-              Expiration Date: {expirationDate}
+              Expiration Date: {expirationDate},
+              Allowed Address: {prescription.allowedAddress === "0x0000000000000000000000000000000000000000" ? "None" : prescription.allowedAddress},
+              Used: {prescription.used ? "true" : "false"}
             </li>
           );
         })}
       </ul>
+      </div>
+      <h3>Give Pharmacist permission</h3>
+      <div>
+        <input type="text" placeholder="Allowed Address" value={allowedAddress} onChange={(e) => setAllowedAddress(e.target.value)} />
+        <input type="number" placeholder="Prescription Index" value={selectedPrescriptionIndex} onChange={(e) => setSelectedPrescriptionIndex(e.target.value)} />
+        <button onClick={handleAllowAddress}>Allow Address</button>
       </div>
     </div>
   );

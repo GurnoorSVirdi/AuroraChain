@@ -13,7 +13,7 @@ const HomePage = () => {
 
     // Instantiate the contract
     const contractABI = DoctorVerificationABI;
-    const doctorVerificationContractAddress = "0x8ea9B328b4eC6a4CDbA194F5A2796244Dd05A4A4";
+    const doctorVerificationContractAddress = "0x333A387FaF70384B63Cc39BbaAFbc0E17936D63A";
     const doctorVerificationContract = new web3.eth.Contract(contractABI, doctorVerificationContractAddress);
 
     const connectWallet = async (route) => {
