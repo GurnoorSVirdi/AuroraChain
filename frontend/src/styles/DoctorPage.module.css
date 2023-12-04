@@ -1,0 +1,88 @@
+.doctorPage {
+    font-family: 'Arial', sans-serif;
+    color: #2f2e2e;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.doctorPage h2 {
+    color: #2f2e2e;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.input, .button {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-size: 18px; /* Larger font size */
+}
+
+.input {
+    border: 2px solid #ccc; /* Thicker border */
+    background-color: #fff;
+}
+
+.input:focus {
+    border-color: #6e6e6e;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.button {
+    background-color: #6e6e6e;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #5a5a5a;
+}
+
+.prescriptionsList {
+    list-style: none;
+    padding: 0;
+}
+
+.prescriptionsList li {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid #6e6e6e;
+    margin-bottom: 15px;
+}
+
+.prescriptionsList li:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.fieldName {
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 10px;
+    text-align: left;
+    width: 150px; /* Ensuring enough width for the longest field name */
+}
+
+.fieldValue {
+    font-weight: normal;
+    display: inline;
+}
+
+.fullPage {
+    min-height: 100vh;
+    background: #e0e0e0;
+}

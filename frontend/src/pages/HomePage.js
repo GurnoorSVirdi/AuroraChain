@@ -66,9 +66,6 @@ const HomePage = () => {
         <div className="home">
              <nav className="navbar">
                 <span className="title">AuroraChain</span>
-                <button onClick={getWalletAddress} className="connect-wallet-btn">
-                    Connect Wallet
-                </button>
             </nav>
             <div className="hero">
                 <h2>Welcome to AuroraChain</h2>

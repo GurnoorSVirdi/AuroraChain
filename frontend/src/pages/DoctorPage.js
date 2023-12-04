@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Web3 from 'web3';
 import PrescriptionContractABI from './PrescriptionContractABI'; // Assuming you have the ABI
+import styles from '../styles/DoctorPage.module.css';
 
 function DoctorPage() {
   // State for form inputs
@@ -67,52 +68,53 @@ function DoctorPage() {
   };
 
   return (
-    <div>
-      <h2>DoctorPage</h2>
-      <form onSubmit={handleSubmit}>
-        <input 
-          type="text" 
-          placeholder="Patient Address" 
-          value={patientAddress}
-          onChange={(e) => setPatientAddress(e.target.value)}
-        />
-        <input 
-          type="text" 
-          placeholder="Medication Type" 
-          value={medicationType}
-          onChange={(e) => setMedicationType(e.target.value)}
-        />
-        <input 
-          type="number" 
-          placeholder="Quantity" 
-          value={quantity}
-          onChange={(e) => setQuantity(e.target.value)}
-        />
-        <input 
-          type="date" 
-          placeholder="Expiration Date" 
-          value={expirationDate}
-          onChange={(e) => setExpirationDate(e.target.value)}
-        />
-        <button type="submit">Create Prescription</button>
-      </form>
-      <div>
-      <h3>Issued Prescriptions</h3>
-      <ul>
-        {doctorPrescriptions.map((prescription, index) => {
-          console.log(prescription)
-          const expirationDate = new Date(parseInt(prescription.expirationDate) * 1000).toLocaleDateString();
-          return (
-            <li key={index}>
-              Patient Address: {prescription.patientAddress},
-              Medication Type: {prescription.medicationType},
-              Quantity: {Number(prescription.quantity)},
-              Expiration Date: {expirationDate}
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+    <div className={styles.fullPage}>
+      <div className={styles.doctorPage}>
+        <h2>DoctorPage</h2>
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <input 
+            type="text" 
+            placeholder="Patient Address" 
+            value={patientAddress}
+            onChange={(e) => setPatientAddress(e.target.value)}
+          />
+          <input 
+            type="text" 
+            placeholder="Medication Type" 
+            value={medicationType}
+            onChange={(e) => setMedicationType(e.target.value)}
+          />
+          <input 
+            type="number" 
+            placeholder="Quantity" 
+            value={quantity}
+            onChange={(e) => setQuantity(e.target.value)}
+          />
+          <input 
+            type="date" 
+            placeholder="Expiration Date" 
+            value={expirationDate}
+            onChange={(e) => setExpirationDate(e.target.value)}
+          />
+          <button type="submit">Create Prescription</button>
+        </form>
+        <div>
+        <h3>Issued Prescriptions</h3>
+        <ul className={styles.prescriptionsList}>
+          {doctorPrescriptions.map((prescription, index) => {
+            const expirationDate = new Date(parseInt(prescription.expirationDate) * 1000).toLocaleDateString();
+            return (
+              <li key={index}>
+                Patient Address: {prescription.patientAddress},
+                Medication Type: {prescription.medicationType},
+                Quantity: {Number(prescription.quantity)},
+                Expiration Date: {expirationDate}
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+      </div>
     </div>
   );
 }
