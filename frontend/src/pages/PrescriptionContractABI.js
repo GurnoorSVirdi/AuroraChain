@@ -262,42 +262,54 @@ const PrescriptionContractABI =  [
 			{
 				"components": [
 					{
-						"internalType": "address",
-						"name": "doctorAddress",
-						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "patientAddress",
-						"type": "address"
-					},
-					{
-						"internalType": "string",
-						"name": "medicationType",
-						"type": "string"
+						"components": [
+							{
+								"internalType": "address",
+								"name": "doctorAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "patientAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "medicationType",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "quantity",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "expirationDate",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "used",
+								"type": "bool"
+							},
+							{
+								"internalType": "address",
+								"name": "allowedAddress",
+								"type": "address"
+							}
+						],
+						"internalType": "struct PrescriptionContract.Prescription",
+						"name": "prescription",
+						"type": "tuple"
 					},
 					{
 						"internalType": "uint256",
-						"name": "quantity",
+						"name": "globalIndex",
 						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "expirationDate",
-						"type": "uint256"
-					},
-					{
-						"internalType": "bool",
-						"name": "used",
-						"type": "bool"
-					},
-					{
-						"internalType": "address",
-						"name": "allowedAddress",
-						"type": "address"
 					}
 				],
-				"internalType": "struct PrescriptionContract.Prescription[]",
+				"internalType": "struct PrescriptionContract.PrescriptionDetail[]",
 				"name": "",
 				"type": "tuple[]"
 			}
@@ -314,7 +326,7 @@ const PrescriptionContractABI =  [
 			},
 			{
 				"internalType": "uint256",
-				"name": "_prescriptionIndex",
+				"name": "_globalIndex",
 				"type": "uint256"
 			}
 		],

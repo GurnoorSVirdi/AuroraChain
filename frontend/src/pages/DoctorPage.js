@@ -13,7 +13,7 @@ function DoctorPage() {
 
   // Web3 and contract setup
   const web3 = new Web3(Web3.givenProvider || "http://localhost:8545");
-  const prescriptionContractAddress = '0x9B1B0e07175260f9889d5a53f7BaFE90138887B4'; // Replace with your contract address
+  const prescriptionContractAddress = '0x7FF3E03736Aba3aa26b5f7019E9ea16fD479D1c0'; // Replace with your contract address
   const prescriptionContract = new web3.eth.Contract(PrescriptionContractABI, prescriptionContractAddress);
 
   const loadAccountData = async () => {
@@ -107,8 +107,7 @@ function DoctorPage() {
               Patient Address: {prescription.patientAddress},
               Medication Type: {prescription.medicationType},
               Quantity: {Number(prescription.quantity)},
-              Expiration Date: {expirationDate}, 
-              Used: {prescription.used ? "true" : "false"}
+              Expiration Date: {expirationDate}
             </li>
           );
         })}
