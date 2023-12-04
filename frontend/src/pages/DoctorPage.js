@@ -13,7 +13,7 @@ function DoctorPage() {
 
   // Web3 and contract setup
   const web3 = new Web3(Web3.givenProvider || "http://localhost:8545");
-  const prescriptionContractAddress = '0xe24534E148b6337f554590e2DeEE171Cf314Af98'; // Replace with your contract address
+  const prescriptionContractAddress = '0x9B1B0e07175260f9889d5a53f7BaFE90138887B4'; // Replace with your contract address
   const prescriptionContract = new web3.eth.Contract(PrescriptionContractABI, prescriptionContractAddress);
 
   const loadAccountData = async () => {
@@ -100,6 +100,7 @@ function DoctorPage() {
       <h3>Issued Prescriptions</h3>
       <ul>
         {doctorPrescriptions.map((prescription, index) => {
+          console.log(prescription)
           const expirationDate = new Date(parseInt(prescription.expirationDate) * 1000).toLocaleDateString();
           return (
             <li key={index}>
