@@ -87,8 +87,8 @@ body {
     background-color: white;
     transition: background-color 0.3s, color 0.3s;
     margin-bottom: 0.625rem; /* 10px equivalent */
+    cursor: pointer; /* Ensures cursor is consistent */
 }
-
 
 .role-btn:hover {
     background-color: #6a5acd;

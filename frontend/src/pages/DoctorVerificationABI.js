@@ -82,6 +82,6 @@ const DoctorVerificationABI = [
 		"type": "function"
 	}
 ];
-  
-  export default DoctorVerificationABI;
+
+export default DoctorVerificationABI;
   

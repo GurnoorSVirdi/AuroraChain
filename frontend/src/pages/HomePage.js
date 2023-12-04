@@ -1,12 +1,10 @@
 import Web3 from 'web3';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
 import '../styles/HomePage.css';
-import DoctorVerificationABI from './contractsABI';
+import DoctorVerificationABI from './DoctorVerificationABI';
 
 const HomePage = () => {
-    const [isDoctor, setIsDoctor] = useState(null); // State to keep track of doctor verification
     const [errorMessage, setErrorMessage] = useState(''); // State to store error message
     const navigate = useNavigate(); // Hook to navigate programmatically
 
@@ -15,20 +13,39 @@ const HomePage = () => {
 
     // Instantiate the contract
     const contractABI = DoctorVerificationABI;
-    const doctorVerificationContractAddress = "0x96E8ae694dfCa02e6d7e27434CF0e732221C6C63";
+    const doctorVerificationContractAddress = "0x8ea9B328b4eC6a4CDbA194F5A2796244Dd05A4A4";
     const doctorVerificationContract = new web3.eth.Contract(contractABI, doctorVerificationContractAddress);
+
+    const connectWallet = async (route) => {
+        if (window.ethereum) {
+            try {
+                const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                if (accounts[0]) {
+                    navigate("/"+route);
+                }
+            } catch (error) {
+                console.error("Failed to connect wallet", error);
+            }
+        } else {
+            alert('Please install MetaMask to use this feature!');
+        }
+    };
 
     // Function to request access to the user's wallet and get the account
     const getWalletAddress = async () => {
-        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-        return accounts[0];
+        if (window.ethereum) {
+            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+            return accounts[0];
+        }
+        else {
+            alert("Please install MetaMask to use this feature!")
+        }
     };
 
     // Function to check if the connected wallet address is a doctor
     async function checkIfDoctor(walletAddress) {
         try {
             const isDoctor = await doctorVerificationContract.methods.verifyDoctor(walletAddress).call();
-            setIsDoctor(isDoctor); // Set the verification result
             if (isDoctor) {
                 navigate('/doctor'); // Navigate to DoctorPage if the user is a verified doctor
             } else {
@@ -67,8 +84,8 @@ const HomePage = () => {
                 <h1>I am a...</h1>
                 <div className="role-buttons">
                     <button className='role-btn' onClick={verifyDoctor}>Doctor</button>
-                    <Link to="/patient" className="role-btn">Patient</Link>
-                    <Link to="/pharmacist" className="role-btn">Pharmacist</Link>
+                    <button className="role-btn" onClick={() => connectWallet("patient")}>Patient</button>
+                    <button className="role-btn" onClick={() => connectWallet("pharmacist")}>Pharmacist</button>
                 </div>
                 {errorMessage && <p className="error-message">{errorMessage}</p>}
             </div>
