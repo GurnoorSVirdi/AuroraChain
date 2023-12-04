@@ -9,6 +9,7 @@ function DoctorPage() {
   const [quantity, setQuantity] = useState('');
   const [expirationDate, setExpirationDate] = useState('');
   const [doctorPrescriptions, setDoctorPrescriptions] = useState([]);
+  const [prescriptionAdded, setPrescriptionAdded] = useState(0)
 
   // Web3 and contract setup
   const web3 = new Web3(Web3.givenProvider || "http://localhost:8545");
@@ -25,7 +26,6 @@ function DoctorPage() {
       const account = accounts[0];
 
       const prescriptions = await prescriptionContract.methods.getPrescriptionsByDoctor(account).call();
-      console.log(prescriptions);
       setDoctorPrescriptions(prescriptions);
     } catch (error) {
       console.error('Error loading account data:', error);
@@ -35,7 +35,7 @@ function DoctorPage() {
   // Effect hook to load account data and prescriptions
   useEffect(() => {
     loadAccountData();
-  }, []); // Empty dependency array ensures this effect runs once on mount
+  }, [prescriptionAdded]); // Empty dependency array ensures this effect runs once on mount
 
   // Function to handle form submission
   const handleSubmit = async (e) => {
@@ -59,6 +59,8 @@ function DoctorPage() {
       ).send({ from: doctorAddress, gas: web3.utils.toHex(151937 * 2)});
 
       console.log('Prescription successfully created');
+      setPrescriptionAdded(prescriptionAdded+1);
+
     } catch (error) {
       console.error('Error creating prescription:', error);
     }
