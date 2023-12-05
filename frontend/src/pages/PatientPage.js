@@ -54,16 +54,21 @@ function PatientPage() {
     loadAccountData();
   }, [allowedAddressUpdated]);
 
+  const reversedPrescriptions = patientPrescriptions.slice().reverse();
+
   return (
     <div className={styles.patientContainer}>
         <h2 className={styles.patientHeader}>Patient Page</h2>
         <div>
             <h3 className={styles.prescriptionTitleHeader}>Your Prescriptions:</h3>
             <ul className={styles.prescriptionList}>
-                {patientPrescriptions.map((prescription, index) => {
+                {reversedPrescriptions.map((prescription, index) => {
                     const expirationDate = new Date(parseInt(prescription.expirationDate) * 1000).toLocaleDateString();
                     return (
-                        <li key={index} className={styles.prescriptionItem}>
+                        <li key={index}
+                        className={styles.prescriptionItem}
+                        style={{ backgroundColor: prescription.used ? "#FFC0CB" : "white" }}
+                        >
                             <p className={styles.prescriptionDetails}>
                                 <strong>Prescription index: </strong> {index}<br/>
                                 <strong>Doctor Address: </strong> {prescription.doctorAddress}<br/>
@@ -71,7 +76,7 @@ function PatientPage() {
                                 <strong>Quantity: </strong> {Number(prescription.quantity)}<br/>
                                 <strong>Expiration Date: </strong> {expirationDate}<br/>
                                 <strong>Allowed Address: </strong> {prescription.allowedAddress === "0x0000000000000000000000000000000000000000" ? "None" : prescription.allowedAddress}<br/>
-                                Used: {prescription.used ? "Yes" : "No"}
+                                <strong>Used: </strong> {prescription.used ? "Yes" : "No"}
                             </p>
                         </li>
                     );

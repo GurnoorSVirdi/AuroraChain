@@ -38,12 +38,13 @@ function PharmacistPage() {
             console.error('Error marking prescription as used:', error);
         }
     };
+    const reversedPrescriptions = prescriptions.slice().reverse();
 
     return (
         <div className={styles.pharmacistContainer}>
             <h2 className={styles.pharmacistHeader}>Pharmacist Page</h2>
             <ul className={styles.prescriptionList}>
-                {prescriptions.map((detail, index) => (
+                {reversedPrescriptions.map((detail, index) => (
                     <li key={index} className={styles.prescriptionItem}>
                         <div className={styles.prescriptionDetailContainer}> {/* New container for prescription details */}
                             <p className={styles.prescriptionDetails}>

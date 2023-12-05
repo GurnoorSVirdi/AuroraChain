@@ -67,6 +67,7 @@ function DoctorPage() {
     }
   };
 
+  const reversePrescriptions = doctorPrescriptions.slice().reverse()
   return (
     <div className={styles.fullPage}>
         <div className={styles.doctorPage}>
@@ -105,7 +106,7 @@ function DoctorPage() {
             <div>
                 <h3 className={styles.prescriptionTitleHeader}>Issued Prescriptions</h3>
                 <ul className={styles.prescriptionsList}>
-                    {doctorPrescriptions.map((prescription, index) => {
+                    {reversePrescriptions.map((prescription, index) => {
                         const expirationDateFormatted = new Date(parseInt(prescription.expirationDate) * 1000).toLocaleDateString();
                         return (
                             <li key={index}>
