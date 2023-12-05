@@ -8,7 +8,7 @@ function PharmacistPage() {
 
     // Web3 and contract setup
     const web3 = new Web3(Web3.givenProvider || "http://localhost:8545");
-    const prescriptionContractAddress = '0x3Efab316D2e12611213dc7FC14d9C45525037cdC';
+    const prescriptionContractAddress = '0xC6645e5f203A8FdA55817C62f53cAA2C06097A50';
     const prescriptionContract = new web3.eth.Contract(PrescriptionContractABI, prescriptionContractAddress);
 
     useEffect(() => {

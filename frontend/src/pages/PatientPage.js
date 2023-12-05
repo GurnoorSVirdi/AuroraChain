@@ -8,7 +8,7 @@ function PatientPage() {
 
   // Web3 and contract setup
   const web3 = new Web3(Web3.givenProvider || "http://localhost:8545");
-  const prescriptionContractAddress = '0x3Efab316D2e12611213dc7FC14d9C45525037cdC'; // Replace with your contract address
+  const prescriptionContractAddress = '0xC6645e5f203A8FdA55817C62f53cAA2C06097A50'; // Replace with your contract address
   const prescriptionContract = new web3.eth.Contract(PrescriptionContractABI, prescriptionContractAddress);
 
   const [allowedAddress, setAllowedAddress] = useState('');
@@ -62,7 +62,7 @@ function PatientPage() {
         <div>
             <h3 className={styles.prescriptionTitleHeader}>Your Prescriptions:</h3>
             <ul className={styles.prescriptionList}>
-                {reversedPrescriptions.map((prescription, index) => {
+                {patientPrescriptions.map((prescription, index) => {
                     const expirationDate = new Date(parseInt(prescription.expirationDate) * 1000).toLocaleDateString();
                     return (
                         <li key={index}
