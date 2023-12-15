@@ -104,12 +104,6 @@ without revealing any information apart from the fact that they know that value.
 - Smart Contracts: Integrate Zero Knowledge Proof logic into smart contracts for actions like prescription validation or access requests.
 - Benefits: Zero Knowledge Proofs enhance privacy by not disclosing user wallet IDs while still ensuring that transactions are legitimate. This is particularly useful in a global context where different privacy standards may apply.
 
-2: Pseudonymous Idenitfication
-- Implementation: Instead of using direct wallet IDs, create pseudonymous identifiers for each user. These identifiers can be linked to the wallet ID but are not  traceable to it.
-- Mapping System: Implement a secure mapping system within the smart contract or a separate privacy-focused layer to manage the relationship between the pseudonymous identifiers and the actual wallet IDs.
-- Access Control: Strictly control who can access the mapping system, potentially using hierarchical access permissions or multi-signature protocols.
-- Benefits: This method allows users to interact within the platform without exposing their actual wallet IDs, enhancing privacy and security.
-
 
 
 How to Run our Code: Make sure you are able to link MetaMask with Ganache ( https://docs.cranq.io/web-3/setting-up-ganache-with-metamask )
