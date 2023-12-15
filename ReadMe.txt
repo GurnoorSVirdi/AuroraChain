@@ -113,3 +113,11 @@ without revealing any information apart from the fact that they know that value.
 
 
 
+How to Run our Code: Make sure you are able to link MetaMask with Ganache ( https://docs.cranq.io/web-3/setting-up-ganache-with-metamask )
+
+1. Deploy the Doctor smart contract on remix. 
+2. Then add an account to the doctor list, using the addDoctor method. 
+3. Now deploy the prescription contract using the address of the doctor contract in the constructor. 
+4. In the frontend: inside DoctorPage, PatientPage and PharmacistPage, modify the prescriptionContractAddress with the one you just got. 
+5. Inside the HomePage, modify the doctorVerificationContractAddress with the one you just got. 
+6. Run npm start and use metamask to navigate around the accounts. 
