@@ -1,4 +1,4 @@
-/* PatientPage.module.css */
+
 
 .patientContainer {
     padding: 20px;
@@ -12,14 +12,14 @@
 
 .patientHeader {
     font-size: 36px;
-    color: #6a5acd; /* Specified hex color */
+    color: #6a5acd;
     text-align: center;
     margin-bottom: 20px;
 }
 
 .prescriptionTitleHeader {
     font-size: 28px;
-    color: #9d8de3; /* Specified hex color */
+    color: #9d8de3; 
     text-align: center;
     margin-bottom: 20px;
 }
@@ -65,17 +65,15 @@
 }
 
 .allowedAddressField {
-    /* Specific style for the Allowed Address field */
     width: 45%; 
 }
 
 .patientIndexField {
-    /* Specific style for the Patient Index field */
     width: 10%; 
 }
 
 .permissionButton {
-    background-color: #6a5acd; /* Specified hex color */
+    background-color: #6a5acd;
     color: white;
     border: none;
     padding: 10px 20px;

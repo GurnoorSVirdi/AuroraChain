@@ -8,8 +8,8 @@ body {
 
 
 .home {
-    min-height: 100vh; /* Ensures the div takes up the full viewport height */
-    width: 100%; /* Ensures the div takes up the full viewport width */
+    min-height: 100vh; 
+    width: 100%; 
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -20,24 +20,24 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.25rem 1.5rem; /* Increased padding for a bigger navbar */
+    padding: 1.25rem 1.5rem;
     background-color: #6a5acd;
     color: white;
 }
 
 .title {
     margin: 0;
-    font-size: 2rem; /* Optionally increased font size for the title */
+    font-size: 2rem; 
 }
 
 .connect-wallet-btn {
-    padding: 0.75rem 1.5rem; /* Slightly bigger padding for the button */
+    padding: 0.75rem 1.5rem; 
     border: none;
     border-radius: 0.3125rem;
     cursor: pointer;
     background-color: #7b68ee;
     color: white;
-    font-size: 1.2rem; /* Optionally increased font size for better readability */
+    font-size: 1.2rem; 
 }
 
 .connect-wallet-btn:hover {
@@ -46,14 +46,14 @@ body {
 
 .hero {
     text-align: center;
-    padding: 1.25rem; /* 20px equivalent */
+    padding: 1.25rem; 
     color: #333;
 }
 
 .hero h2 {
     font-size: 2.5rem;
     color: #6a5acd;
-    margin-bottom: 0.9375rem; /* 15px equivalent */
+    margin-bottom: 0.9375rem; 
 }
 
 .hero p {
@@ -70,24 +70,24 @@ body {
 
 .role-buttons {
     display: flex;
-    gap: 1.875rem; /* 30px equivalent */
+    gap: 1.875rem;
     justify-content: center;
     flex-wrap: wrap;
 }
 
 .role-btn {
-    padding: 1.25rem; /* 20px equivalent */
-    min-width: 12.5rem; /* 200px equivalent */
+    padding: 1.25rem; 
+    min-width: 12.5rem; 
     text-align: center;
-    border: 0.1875rem solid #6a5acd; /* 3px equivalent */
-    border-radius: 0.3125rem; /* 5px equivalent */
+    border: 0.1875rem solid #6a5acd; 
+    border-radius: 0.3125rem;
     text-decoration: none;
     color: #6a5acd;
     font-size: 1.2rem;
     background-color: white;
     transition: background-color 0.3s, color 0.3s;
-    margin-bottom: 0.625rem; /* 10px equivalent */
-    cursor: pointer; /* Ensures cursor is consistent */
+    margin-bottom: 0.625rem; 
+    cursor: pointer; 
 }
 
 .role-btn:hover {
@@ -96,7 +96,7 @@ body {
 }
 
 .error-message {
-    color: red; /* Or any color you prefer */
+    color: red; 
     font-size: 1.3rem;
     font-weight: bold;
 }

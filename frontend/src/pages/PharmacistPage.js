@@ -33,7 +33,7 @@ function PharmacistPage() {
             await prescriptionContract.methods.markPrescriptionAsUsed(patientAddress, globalIndex)
                 .send({ from: pharmacistAddress, gas: web3.utils.toHex(3000000) });
             console.log('Prescription marked as used');
-            loadPrescriptions(); // Reload prescriptions
+            loadPrescriptions(); 
         } catch (error) {
             console.error('Error marking prescription as used:', error);
         }

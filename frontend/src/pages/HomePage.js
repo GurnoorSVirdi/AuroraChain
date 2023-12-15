@@ -1,12 +1,12 @@
 import Web3 from 'web3';
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
+import { useNavigate } from 'react-router-dom'; 
 import '../styles/HomePage.css';
 import DoctorVerificationABI from './DoctorVerificationABI';
 
 const HomePage = () => {
-    const [errorMessage, setErrorMessage] = useState(''); // State to store error message
-    const navigate = useNavigate(); // Hook to navigate programmatically
+    const [errorMessage, setErrorMessage] = useState(''); 
+    const navigate = useNavigate(); 
 
     // Initialize web3
     const web3 = new Web3(Web3.givenProvider || "http://localhost:8545");
@@ -47,13 +47,13 @@ const HomePage = () => {
         try {
             const isDoctor = await doctorVerificationContract.methods.verifyDoctor(walletAddress).call();
             if (isDoctor) {
-                navigate('/doctor'); // Navigate to DoctorPage if the user is a verified doctor
+                navigate('/doctor'); 
             } else {
-                setErrorMessage('You are not recognized as a doctor. Please contact us to be added to the list.'); // Set error message
+                setErrorMessage('You are not recognized as a doctor. Please contact us to be added to the list.'); 
             }
         } catch (error) {
             console.error("An error occurred while verifying the doctor:", error);
-            setErrorMessage('There was an error verifying your doctor status.'); // Set error message for other errors
+            setErrorMessage('There was an error verifying your doctor status.'); 
         }
     }
 

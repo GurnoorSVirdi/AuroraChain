@@ -1,3 +1,29 @@
+AuroraChain Demo ReadMe: 
+
+Team: 
+
+Harold Castiaux: hjc2154
+
+Gurnoor Singh Virdi: gsv2110 
+
+
+Descriptions: 
+We have built a decentralized prescription based blockchain application for patients doctors and pharmacists around the world. 
+
+Google Slides Link: 
+https://docs.google.com/presentation/d/1T8uSByfKp4e9BhYJkauBVL-vVI5piZUe-o4sIgI2ZIw/edit?usp=sharing
+
+Demo VIdeo Link: 
+AuroraChain Demo.mp4
+
+
+Github Link: 
+https://github.com/GurnoorSVirdi/AuroraChain
+
+
+
+ReadMe: 
+
 # AuroraChain
 BlockchainBasedPrescriptionApplication
 

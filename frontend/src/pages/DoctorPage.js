@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Web3 from 'web3';
-import PrescriptionContractABI from './PrescriptionContractABI'; // Assuming you have the ABI
+import PrescriptionContractABI from './PrescriptionContractABI'; 
 import styles from '../styles/DoctorPage.module.css';
 
 function DoctorPage() {
-  // State for form inputs
+
   const [patientAddress, setPatientAddress] = useState('');
   const [medicationType, setMedicationType] = useState('');
   const [quantity, setQuantity] = useState('');
@@ -14,7 +14,7 @@ function DoctorPage() {
 
   // Web3 and contract setup
   const web3 = new Web3(Web3.givenProvider || "http://localhost:8545");
-  const prescriptionContractAddress = '0xC6645e5f203A8FdA55817C62f53cAA2C06097A50'; // Replace with your contract address
+  const prescriptionContractAddress = '0xC6645e5f203A8FdA55817C62f53cAA2C06097A50'; 
   const prescriptionContract = new web3.eth.Contract(PrescriptionContractABI, prescriptionContractAddress);
 
   const loadAccountData = async () => {
@@ -36,7 +36,7 @@ function DoctorPage() {
   // Effect hook to load account data and prescriptions
   useEffect(() => {
     loadAccountData();
-  }, [prescriptionAdded]); // Empty dependency array ensures this effect runs once on mount
+  }, [prescriptionAdded]); 
 
   // Function to handle form submission
   const handleSubmit = async (e) => {

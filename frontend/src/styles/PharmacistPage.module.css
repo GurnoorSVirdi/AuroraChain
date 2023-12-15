@@ -1,4 +1,4 @@
-/* PharmacistPage.module.css */
+
 
 .pharmacistContainer {
     padding: 20px;
@@ -40,11 +40,11 @@
 .prescriptionDetailContainer {
     text-align: left; 
     padding: 10px;
-    border-bottom: 1px solid #ddd; /* Bottom border for each prescription */
+    border-bottom: 1px solid #ddd;
 }
 
 .separatorLine {
-    border-top: 1px solid #ddd; /* Line separator between prescriptions */
+    border-top: 1px solid #ddd;
     margin: 10px 0;
 }
 
@@ -52,15 +52,15 @@
     background-color: #6a5acd;
     color: white;
     border: none;
-    padding: 15px 30px; /* Increased padding for a bigger button */
+    padding: 15px 30px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 18px; /* Larger font size */
+    font-size: 18px;
     margin: 10px 0;
     cursor: pointer;
     border-radius: 4px;
-    width: 100%; /* Make button wider */
+    width: 100%;
 }
 
 .markUsedButton:hover {

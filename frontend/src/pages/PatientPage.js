@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Web3 from 'web3';
-import PrescriptionContractABI from './PrescriptionContractABI'; // Import the ABI
+import PrescriptionContractABI from './PrescriptionContractABI';
 import styles from '../styles/PatientPage.module.css';
 
 function PatientPage() {
@@ -8,7 +8,7 @@ function PatientPage() {
 
   // Web3 and contract setup
   const web3 = new Web3(Web3.givenProvider || "http://localhost:8545");
-  const prescriptionContractAddress = '0xC6645e5f203A8FdA55817C62f53cAA2C06097A50'; // Replace with your contract address
+  const prescriptionContractAddress = '0xC6645e5f203A8FdA55817C62f53cAA2C06097A50'; 
   const prescriptionContract = new web3.eth.Contract(PrescriptionContractABI, prescriptionContractAddress);
 
   const [allowedAddress, setAllowedAddress] = useState('');
